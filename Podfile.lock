@@ -23,6 +23,9 @@ PODS:
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
+  - RxSwiftUtilities (2.0.0):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - RxTest (4.1.2):
     - RxSwift (~> 4.0)
 
@@ -35,7 +38,18 @@ DEPENDENCIES:
   - RxBlocking (~> 4.0)
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
+  - RxSwiftUtilities (from `https://github.com/ivanmkc/RxSwiftUtilities`, branch `swift_4`)
   - RxTest (~> 4.0)
+
+EXTERNAL SOURCES:
+  RxSwiftUtilities:
+    :branch: swift_4
+    :git: https://github.com/ivanmkc/RxSwiftUtilities
+
+CHECKOUT OPTIONS:
+  RxSwiftUtilities:
+    :commit: 75e49e596d3b359c9753febf037e224d5555aac2
+    :git: https://github.com/ivanmkc/RxSwiftUtilities
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
@@ -47,8 +61,9 @@ SPEC CHECKSUMS:
   RxBlocking: f6054985901412fc8c02daa84e92d4ba68c61389
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxSwift: e49536837d9901277638493ea537394d4b55f570
+  RxSwiftUtilities: a748c9b0210250a921e6364f33372df979673414
   RxTest: e634f15fd2c2cd0e0120132ef7a4f7be69ad0393
 
-PODFILE CHECKSUM: 1dab1f2bd4ce4bc76960c643f9e3570da7fcbaed
+PODFILE CHECKSUM: 9f1c8606d3901ffcb71aca3ed27713080cc72f30
 
 COCOAPODS: 1.4.0

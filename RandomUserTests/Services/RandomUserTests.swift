@@ -13,9 +13,7 @@ import RxSwift
 import RxBlocking
 import Moya
 
-class DataProviderTests: XCTestCase {
-    
-    private let TIMEOUT_IN_SECONDS : TimeInterval = 10
+class DataProviderTests: XCTestCase {    
     private var dataProvider: DataProviding!
     
     override func setUp() {
@@ -30,14 +28,14 @@ class DataProviderTests: XCTestCase {
     
     func testGetUsers() {
         do {
-            guard let users = try dataProvider.GetUsers(numberOfUsers: 100)
-                .toBlocking(timeout: TIMEOUT_IN_SECONDS)
+            guard let users = try dataProvider.GetUsers(numberOfUsers: TestConstants.numberOfUsersInStub)
+                .toBlocking(timeout: TestConstants.timeoutInSeconds)
                 .first() else {
                     XCTFail("No users found.")
                     return
             }
             
-            XCTAssertEqual(users.count, 100)
+            XCTAssertEqual(users.count, TestConstants.numberOfUsersInStub)
         }
         catch {
             XCTFail(error.localizedDescription)

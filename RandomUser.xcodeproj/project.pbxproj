@@ -27,6 +27,10 @@
 		C951279E2039BBA100881E95 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951279D2039BBA100881E95 /* Name.swift */; };
 		C95127A02039BC1500881E95 /* RandomUserResponsePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951279F2039BC1500881E95 /* RandomUserResponsePlugin.swift */; };
 		C95127A12039C1DF00881E95 /* GetRandomUsers.json in Resources */ = {isa = PBXBuildFile; fileRef = C95127992039B9F700881E95 /* GetRandomUsers.json */; };
+		C95127A52039C35800881E95 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127A42039C35800881E95 /* UsersViewModel.swift */; };
+		C95127A72039C40100881E95 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127A62039C40100881E95 /* Constants.swift */; };
+		C95127AA2039C46E00881E95 /* UsersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127A92039C46E00881E95 /* UsersViewModelTests.swift */; };
+		C95127AC2039C71700881E95 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127AB2039C71700881E95 /* TestConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +80,10 @@
 		C951279B2039BB5400881E95 /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 		C951279D2039BBA100881E95 /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
 		C951279F2039BC1500881E95 /* RandomUserResponsePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserResponsePlugin.swift; sourceTree = "<group>"; };
+		C95127A42039C35800881E95 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		C95127A62039C40100881E95 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C95127A92039C46E00881E95 /* UsersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModelTests.swift; sourceTree = "<group>"; };
+		C95127AB2039C71700881E95 /* TestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		CC058197CB0CE67A9456692E /* Pods-RandomUser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RandomUser/Pods-RandomUser.debug.xcconfig"; sourceTree = "<group>"; };
 		E877217CD9EDF8BC0CD2FFD6 /* Pods-RandomUserUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUserUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RandomUserUITests/Pods-RandomUserUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +154,8 @@
 		C951275A2039AF6800881E95 /* RandomUser */ = {
 			isa = PBXGroup;
 			children = (
+				C95127A32039C33C00881E95 /* View Controllers */,
+				C95127A22039C33400881E95 /* View Models */,
 				C951278A2039B18400881E95 /* Services */,
 				C95127892039B17E00881E95 /* Models */,
 				C95127952039B68A00881E95 /* Utils */,
@@ -155,6 +165,7 @@
 				C95127622039AF6800881E95 /* Assets.xcassets */,
 				C95127642039AF6800881E95 /* LaunchScreen.storyboard */,
 				C95127672039AF6800881E95 /* Info.plist */,
+				C95127A62039C40100881E95 /* Constants.swift */,
 			);
 			path = RandomUser;
 			sourceTree = "<group>";
@@ -162,6 +173,8 @@
 		C951276F2039AF6800881E95 /* RandomUserTests */ = {
 			isa = PBXGroup;
 			children = (
+				C95127AB2039C71700881E95 /* TestConstants.swift */,
+				C95127A82039C46300881E95 /* View Models */,
 				C95127982039B9DE00881E95 /* Stubs */,
 				C951278F2039B23D00881E95 /* Services */,
 				C95127722039AF6800881E95 /* Info.plist */,
@@ -229,6 +242,29 @@
 				C95127992039B9F700881E95 /* GetRandomUsers.json */,
 			);
 			path = Stubs;
+			sourceTree = "<group>";
+		};
+		C95127A22039C33400881E95 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				C95127A42039C35800881E95 /* UsersViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		C95127A32039C33C00881E95 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C95127A82039C46300881E95 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				C95127A92039C46E00881E95 /* UsersViewModelTests.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 		F17523770BA9811A429258EA /* Frameworks */ = {
@@ -478,6 +514,7 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwiftUtilities/RxSwiftUtilities.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -489,6 +526,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftUtilities.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -557,6 +595,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C95127A52039C35800881E95 /* UsersViewModel.swift in Sources */,
 				C95127942039B64300881E95 /* RandomUserTarget.swift in Sources */,
 				C951278E2039B1D500881E95 /* User.swift in Sources */,
 				C951275E2039AF6800881E95 /* ViewController.swift in Sources */,
@@ -567,6 +606,7 @@
 				C95127912039B2A800881E95 /* DataProvider.swift in Sources */,
 				C951275C2039AF6800881E95 /* AppDelegate.swift in Sources */,
 				C951278C2039B1A000881E95 /* DataProviding.swift in Sources */,
+				C95127A72039C40100881E95 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +615,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C95127712039AF6800881E95 /* RandomUserTests.swift in Sources */,
+				C95127AC2039C71700881E95 /* TestConstants.swift in Sources */,
+				C95127AA2039C46E00881E95 /* UsersViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

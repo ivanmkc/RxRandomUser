@@ -13,6 +13,7 @@ target 'RandomUser' do
   pod 'ModelMapper'
   pod 'Kingfisher',   '~> 4.0'
   pod 'Result',   '~> 3.0'
+  pod 'RxSwiftUtilities', :git => 'https://github.com/ivanmkc/RxSwiftUtilities', :branch => 'swift_4'
 
   target 'RandomUserTests' do
     inherit! :search_paths
