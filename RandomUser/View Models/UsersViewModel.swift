@@ -31,19 +31,19 @@ class UsersViewModel {
         
         //Refresh user data from the server every time the refresh is triggered
         let userCells = refreshTriggers
+            .asDriverSkippingErrors()
             .flatMapLatest {
                 dataProvider
                     .GetUsers(numberOfUsers: Constants.NumberOfUsers)
-                    .trackActivity(activityIndicator)
+                    .trackActivity(activityIndicator)//Show an error cell if there's an error
+                    .map { (users) -> [UserCellType] in
+                        //Show user cells
+                        return users.map { .User(user: $0) }
+                    }
+                    .asDriver(onErrorRecover: { (error) -> Driver<[UserCellType]> in
+                        return Driver.just([UserCellType.Error(error: error)])
+                    })
             }
-            .map { (users) -> [UserCellType] in
-                //Show user cells
-                return users.map { .User(user: $0) }
-            }
-            //Show an error cell if there's an error
-            .asDriver(onErrorRecover: { (error) -> Driver<[UserCellType]> in
-                return Driver.just([UserCellType.Error(error: error)])
-            })
             .startWith([])
         
         //Initialize the placeholder cells that show while loading
@@ -51,7 +51,6 @@ class UsersViewModel {
         
         isLoading = activityIndicator
             .asDriver(onErrorJustReturn: false)
-            .distinctUntilChanged()
             .startWith(false)
         
         //Show the user cells or loading cells depending if its currently loading or not

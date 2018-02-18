@@ -23,6 +23,7 @@ struct UsersViewControllerConstants {
     }
     
     struct Layout {
+        static let ErrorCellHeight: CGFloat = 200
         static let InteritemSpacing: CGFloat = 3
         static let LineSpacing: CGFloat = 3
     }
@@ -41,6 +42,8 @@ class UsersViewController: UIViewController {
         
         return UsersViewModel(refreshTriggers: refreshTriggers, dataProvider: dataProvider)
     }()
+    
+    private let cellCache = BehaviorRelay<[UserCellType]>(value: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,6 +108,8 @@ class UsersViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        viewModel.cells.drive(cellCache).disposed(by: disposeBag)
+        
         collectionViewUsers.rx.setDelegate(self).disposed(by: disposeBag)
     }
     
@@ -119,11 +124,11 @@ class UsersViewController: UIViewController {
 
 extension UsersViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cell = collectionView.cellForItem(at: indexPath)
+        let item = cellCache.value[indexPath.item]
         
-        switch cell {
-        case is ErrorCollectionViewCell:
-            return CGSize(width: collectionView.frame.width, height: 200)
+        switch item {
+        case .Error:
+            return CGSize(width: collectionView.frame.width, height: UsersViewControllerConstants.Layout.ErrorCellHeight)
         default:
             let cellWidth = (collectionView.frame.width-UsersViewControllerConstants.Layout.InteritemSpacing)/2
             return CGSize(width: cellWidth, height:  cellWidth)
