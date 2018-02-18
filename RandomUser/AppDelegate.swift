@@ -7,15 +7,28 @@
 //
 
 import UIKit
+import Moya
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    var dataProvider: DataProvider!
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        //Initialize services
+        let provider = MoyaProvider<RandomUserTarget>(
+            plugins: [RandomUserResponsePlugin()]
+        )
+        
+        dataProvider = DataProvider(provider: provider)
+        
+        //Inject services
+        if let navController = window?.rootViewController as? UINavigationController, let usersVC = navController.viewControllers.first as? UsersViewController {
+            usersVC.dataProvider = dataProvider
+        }
+        
         return true
     }
 

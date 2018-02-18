@@ -14,6 +14,8 @@ target 'RandomUser' do
   pod 'Kingfisher',   '~> 4.0'
   pod 'Result',   '~> 3.0'
   pod 'RxSwiftUtilities', :git => 'https://github.com/ivanmkc/RxSwiftUtilities', :branch => 'swift_4'
+  pod 'RxAppState',   '~> 1.0'
+  pod 'ESPullToRefresh',   '~> 2.0'
 
   target 'RandomUserTests' do
     inherit! :search_paths

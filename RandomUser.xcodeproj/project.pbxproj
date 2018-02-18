@@ -11,7 +11,6 @@
 		686226749A1969656F3DBC69 /* Pods_RandomUserUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30CBF56C704D9EED6CA8813 /* Pods_RandomUserUITests.framework */; };
 		8617DD8A4492F1F04EE2B920 /* Pods_RandomUserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F4917B764FA61836AE0DA4 /* Pods_RandomUserTests.framework */; };
 		C951275C2039AF6800881E95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951275B2039AF6800881E95 /* AppDelegate.swift */; };
-		C951275E2039AF6800881E95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951275D2039AF6800881E95 /* ViewController.swift */; };
 		C95127612039AF6800881E95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C951275F2039AF6800881E95 /* Main.storyboard */; };
 		C95127632039AF6800881E95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C95127622039AF6800881E95 /* Assets.xcassets */; };
 		C95127662039AF6800881E95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C95127642039AF6800881E95 /* LaunchScreen.storyboard */; };
@@ -32,6 +31,10 @@
 		C95127AA2039C46E00881E95 /* UsersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127A92039C46E00881E95 /* UsersViewModelTests.swift */; };
 		C95127AC2039C71700881E95 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127AB2039C71700881E95 /* TestConstants.swift */; };
 		C95127AF2039C89D00881E95 /* MockErrorPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127AE2039C89D00881E95 /* MockErrorPlugin.swift */; };
+		C95127B12039CFF800881E95 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127B02039CFF800881E95 /* UsersViewController.swift */; };
+		C95127B32039D13F00881E95 /* UIScrollView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127B22039D13F00881E95 /* UIScrollView+extensions.swift */; };
+		C95127B52039D19B00881E95 /* Observable+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127B42039D19B00881E95 /* Observable+extensions.swift */; };
+		C95127B62039D2AA00881E95 /* MockErrorPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127AE2039C89D00881E95 /* MockErrorPlugin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +64,6 @@
 		C30CBF56C704D9EED6CA8813 /* Pods_RandomUserUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUserUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C95127582039AF6800881E95 /* RandomUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C951275B2039AF6800881E95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C951275D2039AF6800881E95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C95127602039AF6800881E95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C95127622039AF6800881E95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C95127652039AF6800881E95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,6 +88,9 @@
 		C95127A92039C46E00881E95 /* UsersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModelTests.swift; sourceTree = "<group>"; };
 		C95127AB2039C71700881E95 /* TestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		C95127AE2039C89D00881E95 /* MockErrorPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockErrorPlugin.swift; sourceTree = "<group>"; };
+		C95127B02039CFF800881E95 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		C95127B22039D13F00881E95 /* UIScrollView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+extensions.swift"; sourceTree = "<group>"; };
+		C95127B42039D19B00881E95 /* Observable+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+extensions.swift"; sourceTree = "<group>"; };
 		CC058197CB0CE67A9456692E /* Pods-RandomUser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RandomUser/Pods-RandomUser.debug.xcconfig"; sourceTree = "<group>"; };
 		E877217CD9EDF8BC0CD2FFD6 /* Pods-RandomUserUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUserUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RandomUserUITests/Pods-RandomUserUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,7 +167,6 @@
 				C95127892039B17E00881E95 /* Models */,
 				C95127952039B68A00881E95 /* Utils */,
 				C951275B2039AF6800881E95 /* AppDelegate.swift */,
-				C951275D2039AF6800881E95 /* ViewController.swift */,
 				C951275F2039AF6800881E95 /* Main.storyboard */,
 				C95127622039AF6800881E95 /* Assets.xcassets */,
 				C95127642039AF6800881E95 /* LaunchScreen.storyboard */,
@@ -235,6 +239,8 @@
 			isa = PBXGroup;
 			children = (
 				C95127962039B6A700881E95 /* MoyaProvider+extensions.swift */,
+				C95127B22039D13F00881E95 /* UIScrollView+extensions.swift */,
+				C95127B42039D19B00881E95 /* Observable+extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -258,6 +264,7 @@
 		C95127A32039C33C00881E95 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C95127B02039CFF800881E95 /* UsersViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -518,11 +525,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RandomUser/Pods-RandomUser-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ESPullToRefresh/ESPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ModelMapper/Mapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ModelMapper/Moya_ModelMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAppState/RxAppState.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwiftUtilities/RxSwiftUtilities.framework",
@@ -530,11 +539,13 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ModelMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAppState.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftUtilities.framework",
@@ -608,15 +619,18 @@
 			files = (
 				C95127A52039C35800881E95 /* UsersViewModel.swift in Sources */,
 				C95127942039B64300881E95 /* RandomUserTarget.swift in Sources */,
+				C95127B12039CFF800881E95 /* UsersViewController.swift in Sources */,
 				C951278E2039B1D500881E95 /* User.swift in Sources */,
-				C951275E2039AF6800881E95 /* ViewController.swift in Sources */,
 				C95127A02039BC1500881E95 /* RandomUserResponsePlugin.swift in Sources */,
 				C95127972039B6A700881E95 /* MoyaProvider+extensions.swift in Sources */,
 				C951279C2039BB5400881E95 /* Picture.swift in Sources */,
 				C951279E2039BBA100881E95 /* Name.swift in Sources */,
+				C95127B52039D19B00881E95 /* Observable+extensions.swift in Sources */,
 				C95127912039B2A800881E95 /* DataProvider.swift in Sources */,
 				C951275C2039AF6800881E95 /* AppDelegate.swift in Sources */,
+				C95127B62039D2AA00881E95 /* MockErrorPlugin.swift in Sources */,
 				C951278C2039B1A000881E95 /* DataProviding.swift in Sources */,
+				C95127B32039D13F00881E95 /* UIScrollView+extensions.swift in Sources */,
 				C95127A72039C40100881E95 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

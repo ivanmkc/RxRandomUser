@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.6.0)
+  - ESPullToRefresh (2.7)
   - Kingfisher (4.6.1)
   - ModelMapper (7.4.1)
   - Moya (10.0.2):
@@ -18,6 +19,9 @@ PODS:
     - Moya/Core
     - RxSwift (~> 4.0)
   - Result (3.2.4)
+  - RxAppState (1.1.0):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - RxBlocking (4.1.2):
     - RxSwift (~> 4.0)
   - RxCocoa (4.1.2):
@@ -30,11 +34,13 @@ PODS:
     - RxSwift (~> 4.0)
 
 DEPENDENCIES:
+  - ESPullToRefresh (~> 2.0)
   - Kingfisher (~> 4.0)
   - ModelMapper
   - Moya (~> 10.0)
   - Moya-ModelMapper/RxSwift (~> 6.0)
   - Result (~> 3.0)
+  - RxAppState (~> 1.0)
   - RxBlocking (~> 4.0)
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
@@ -53,17 +59,19 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  ESPullToRefresh: 119e2710b82b75536aab2bbe4883ba119fca35c8
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   ModelMapper: e576b4e32007bf574d0f9e4f533d29c46d29f146
   Moya: 2b0531a9fef318e0bc484030c3db1e6f279ccb66
   Moya-ModelMapper: c59c0bbd042cf9d1d9b0acf38c5f930956bebed8
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  RxAppState: 38668aa199f497840f4b24182c1756a2ee4ec3e2
   RxBlocking: f6054985901412fc8c02daa84e92d4ba68c61389
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   RxSwiftUtilities: a748c9b0210250a921e6364f33372df979673414
   RxTest: e634f15fd2c2cd0e0120132ef7a4f7be69ad0393
 
-PODFILE CHECKSUM: 9f1c8606d3901ffcb71aca3ed27713080cc72f30
+PODFILE CHECKSUM: e25bfbc2afd83cdf0a00888716eff0b88d938a50
 
 COCOAPODS: 1.4.0
