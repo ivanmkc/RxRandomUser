@@ -27,7 +27,7 @@ struct User {
     }
     
     func GetAge(referenceDate: Date = Date()) -> Int {
-        return max((referenceDate.timeIntervalSince(dateOfBirth)).in(.year) ?? 0, 0)
+        return max((referenceDate - dateOfBirth).in(.year, fromDate: referenceDate) ?? 0, 0)
     }
 }
 
