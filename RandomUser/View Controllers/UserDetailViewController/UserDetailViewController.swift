@@ -59,7 +59,7 @@ class UserDetailViewController: UIViewController {
     
     private func setupRx() {
         //Pan views down as the user pans with their finger
-        self.viewContainer.rx
+        self.view.rx
             .panGesture()
             .when(.changed)
             .asTranslation()
@@ -67,23 +67,27 @@ class UserDetailViewController: UIViewController {
             .drive(onNext: { [weak self] (point, velocity) in
                 let yOffset: CGFloat = max(point.y, CGFloat.leastNormalMagnitude)
                 
-                if yOffset > UserDetailViewControllerConstants.PanDismissalThreshold {
-                    self?.dismiss(animated: true, completion: nil)
-                }
-                else {
-                    self?.imageView.transform = CGAffineTransform.init(translationX: 0, y: yOffset)
-                }
+                self?.viewContainer.transform = CGAffineTransform.init(translationX: 0, y: yOffset)
             })
             .disposed(by: disposeBag)
         
         //Restore view position when user releases the pan
-        self.viewContainer.rx
+        self.view.rx
             .panGesture()
             .when(.ended)
+            .asTranslation()
             .asDriverSkippingErrors()
-            .drive(onNext: { [weak self] _ in
-                UIView.animate(withDuration: UserDetailViewControllerConstants.BouncebackDuration) {
-                    self?.imageView.transform = CGAffineTransform.identity
+            .drive(onNext: { [weak self] (point, velocity) in
+                let yOffset: CGFloat = max(point.y, CGFloat.leastNormalMagnitude)
+
+                //If past the threshold, dismiss
+                if yOffset > UserDetailViewControllerConstants.PanDismissalThreshold {
+                    self?.dismiss(animated: true, completion: nil)
+                }
+                else {
+                    UIView.animate(withDuration: UserDetailViewControllerConstants.BouncebackDuration) {
+                        self?.viewContainer.transform = CGAffineTransform.identity
+                    }
                 }
             })
             .disposed(by: disposeBag)
