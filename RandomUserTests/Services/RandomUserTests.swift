@@ -6,10 +6,12 @@
 //  Copyright © 2018 IvanCheung. All rights reserved.
 //
 
+@testable import RandomUser
+
 import XCTest
 import RxSwift
 import RxBlocking
-@testable import RandomUser
+import Moya
 
 class DataProviderTests: XCTestCase {
     
@@ -18,8 +20,12 @@ class DataProviderTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        dataProvider = DataProvider()
+        
+        let mockProvider = MoyaProvider<RandomUserTarget>(
+            stubClosure: MoyaProvider.immediatelyStub,
+            plugins: [RandomUserResponsePlugin()])
+        
+        dataProvider = DataProvider(provider: mockProvider)
     }
     
     func testGetUsers() {

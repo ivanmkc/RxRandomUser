@@ -7,9 +7,17 @@
 //
 
 import RxSwift
+import Result
+import Moya
 
 class DataProvider: DataProviding {
+    private let provider: MoyaProvider<RandomUserTarget>
+    
+    init(provider: MoyaProvider<RandomUserTarget>) {
+        self.provider = provider
+    }
+    
     func GetUsers(numberOfUsers: Int) -> Observable<[User]> {
-        return Observable.just([])
+        return provider.loadArray(.GetRandomUsers(numberOfUsers: numberOfUsers))
     }
 }
