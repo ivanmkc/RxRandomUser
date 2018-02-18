@@ -17,4 +17,11 @@ extension Observable {
                 return
         }
     }
+    
+    func asDriverSkippingErrors() -> Driver<E>
+    {
+        return self.asDriver { (_) -> Driver<E> in
+            return Driver.never()
+        }
+    }
 }

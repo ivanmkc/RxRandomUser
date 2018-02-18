@@ -17,6 +17,7 @@ target 'RandomUser' do
   pod 'RxAppState',   '~> 1.0'
   pod 'ESPullToRefresh',   '~> 2.0'
   pod 'SwiftDate',   '~> 4.0'
+  pod 'RxGesture',   '~> 1.0'
 
   target 'RandomUserTests' do
     inherit! :search_paths

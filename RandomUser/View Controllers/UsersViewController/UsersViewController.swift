@@ -78,6 +78,11 @@ class UsersViewController: UIViewController {
             case .Error(let error):
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UsersViewControllerConstants.CellIdentifiers.Error, for: IndexPath(row: row, section: 0))
                 
+                if let cell = cell as? ErrorCollectionViewCell
+                {
+                    cell.error = error
+                }
+                
                 return cell
             case .Loading:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UsersViewControllerConstants.CellIdentifiers.Loading, for: IndexPath(row: row, section: 0))
@@ -86,14 +91,43 @@ class UsersViewController: UIViewController {
         }
         .disposed(by: disposeBag)
         
+        //Handle user selection
+        collectionViewUsers.rx
+            .modelSelected(UserCellType.self)
+            .asDriver()
+            .drive(onNext: { [weak self] (userCellType) in
+                switch (userCellType) {
+                case .User(let user):
+                    self?.performSegue(withIdentifier: UsersViewControllerConstants.Segues.ShowUserDetails, sender: user)
+                default:
+                    return
+                }
+            })
+            .disposed(by: disposeBag)
+        
         collectionViewUsers.rx.setDelegate(self).disposed(by: disposeBag)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == UsersViewControllerConstants.Segues.ShowUserDetails,
+            let vc = segue.destination as? UserDetailViewController,
+            let user = sender as? User {
+                vc.user = user
+            }
     }
 }
 
 extension UsersViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = (collectionView.frame.width-UsersViewControllerConstants.Layout.InteritemSpacing)/2
-        return CGSize(width: cellWidth, height:  cellWidth)
+        let cell = collectionView.cellForItem(at: indexPath)
+        
+        switch cell {
+        case is ErrorCollectionViewCell:
+            return CGSize(width: collectionView.frame.width, height: 200)
+        default:
+            let cellWidth = (collectionView.frame.width-UsersViewControllerConstants.Layout.InteritemSpacing)/2
+            return CGSize(width: cellWidth, height:  cellWidth)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

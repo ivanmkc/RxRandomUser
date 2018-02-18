@@ -45,6 +45,7 @@ class DataProviderTests: XCTestCase {
                 XCTAssertEqual(user.email, "ege.alpuğan@example.com", "Incorrect email of first user")
                 XCTAssertEqual(user.gender, .Female, "Incorrect gender of first user")
                 XCTAssertEqual(user.login.username, "silverladybug155", "Incorrect username of first user")
+                XCTAssertEqual(user.location.state, "tunceli", "Incorrect state of first user")                
             }
             else {
                 XCTFail("First user not found")

@@ -26,6 +26,9 @@ PODS:
     - RxSwift (~> 4.0)
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
+  - RxGesture (1.2.1):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
   - RxSwiftUtilities (2.0.0):
     - RxCocoa (~> 4.0)
@@ -44,10 +47,11 @@ DEPENDENCIES:
   - RxAppState (~> 1.0)
   - RxBlocking (~> 4.0)
   - RxCocoa (~> 4.0)
+  - RxGesture (~> 1.0)
   - RxSwift (~> 4.0)
   - RxSwiftUtilities (from `https://github.com/ivanmkc/RxSwiftUtilities`, branch `swift_4`)
   - RxTest (~> 4.0)
-  - SwiftDate
+  - SwiftDate (~> 4.0)
 
 EXTERNAL SOURCES:
   RxSwiftUtilities:
@@ -70,11 +74,12 @@ SPEC CHECKSUMS:
   RxAppState: 38668aa199f497840f4b24182c1756a2ee4ec3e2
   RxBlocking: f6054985901412fc8c02daa84e92d4ba68c61389
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
+  RxGesture: c278eb05b187abd47e11e65464ae4de53ab71d95
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   RxSwiftUtilities: a748c9b0210250a921e6364f33372df979673414
   RxTest: e634f15fd2c2cd0e0120132ef7a4f7be69ad0393
   SwiftDate: 7b56d42a221f582047287deb256b23fc5ed49a60
 
-PODFILE CHECKSUM: 87a32c938b6fc5480cf9bb699418c29c19bdd37c
+PODFILE CHECKSUM: 8fc1322af4a0c4c6680ebbaed3ba8433c185e5ca
 
 COCOAPODS: 1.4.0

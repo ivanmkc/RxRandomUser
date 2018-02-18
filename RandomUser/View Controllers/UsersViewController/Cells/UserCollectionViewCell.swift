@@ -17,11 +17,11 @@ class UserCollectionViewCell: UICollectionViewCell {
     var user: User? {
         didSet {
             //Set image
-            if let image = user?.picture?.medium {
-                imageView.kf.setImage(with: image)
+            if let image = user?.picture?.large {
+                imageView.kf.setImage(with: image, placeholder: #imageLiteral(resourceName: "UserPlaceholder"))
             }
             else {
-                imageView.kf.setImage(with: nil) //TODO: Use placeholder
+                imageView.image = #imageLiteral(resourceName: "UserPlaceholder")
             }
             
             //Set details

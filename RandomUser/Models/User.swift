@@ -17,6 +17,7 @@ struct User {
     var gender: UserGender
     var picture: Picture?
     var login: Login
+    var location: Location
     var phone: String
     var cell: String
     var dateOfBirth: Date
@@ -40,6 +41,7 @@ extension User: Mappable
         try phone = map.from("phone")
         try cell = map.from("cell")
         try login = map.from("login")
+        try location = map.from("location")
         try dateOfBirth = map.from("dob", transformation: ModelMapperTransformations.extractDateFromRandomUserDateString)
     }
 }
