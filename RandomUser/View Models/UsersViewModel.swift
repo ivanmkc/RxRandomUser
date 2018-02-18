@@ -55,8 +55,7 @@ class UsersViewModel {
             .startWith(false)
         
         //Show the user cells or loading cells depending if its currently loading or not
-        cells = isLoading
-            .withLatestFrom(userCells) { ($0, $1) }
+        cells = Driver.combineLatest(isLoading, userCells)
             .map { (isLoading, userCells) in
                 if isLoading {
                     return loadingCells

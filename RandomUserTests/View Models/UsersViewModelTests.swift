@@ -39,10 +39,10 @@ class UsersViewModelTests: XCTestCase {
         let userViewModel = UsersViewModel(refreshTriggers: refreshTrigger, dataProvider: provider)
         
         do {
-            //Get the first two cell collections emitted by the observable
+            //Get the first three cell collections emitted by the observable
             let cellElements = try userViewModel.cells
                 .asObservable()
-                .take(3)
+                .take(4)
                 .toBlocking(timeout: TestConstants.timeoutInSeconds)
                 .toArray()
             
@@ -65,8 +65,10 @@ class UsersViewModelTests: XCTestCase {
                 .reduce(true, { $0 && $1 })
             XCTAssert(areAllCellsLoadingCells, "Incorrect types of initial loading cells")
             
+            //Skip the repeat of the loading cells
+            
             //Check triggered value for 'User' cells
-            let userCells = cellElements[2]
+            let userCells = cellElements[3]
             XCTAssertEqual(userCells.count, TestConstants.numberOfUsersInStub, "Incorrect number of user cells")
             
             let areAllCellsUserCells = userCells
@@ -103,6 +105,48 @@ class UsersViewModelTests: XCTestCase {
         }
     }
     
+    func testUserViewModelErrorCells() {
+        //Initialize a mock provider that always returns an error
+        let mockProvider = MoyaProvider<RandomUserTarget>(
+            stubClosure: MoyaProvider.immediatelyStub,
+            plugins: [MockErrorPlugin(mockError: RandomUserResponseError.InvalidResponseFormat)]
+        )
+        
+        //Initialize the data provider
+        let errorProvider = DataProvider(provider: mockProvider)
+        
+        let refreshTrigger = Observable.just(())
+        let userViewModel = UsersViewModel(refreshTriggers: refreshTrigger, dataProvider: errorProvider)
+        
+        do {
+            //Get the first three cell collections emitted by the observable
+            let cellElements = try userViewModel.cells
+                .asObservable()
+                .take(4)
+                .toBlocking(timeout: TestConstants.timeoutInSeconds)
+                .toArray()
+            
+            //Check triggered value for 'User' cells
+            let errorCells = cellElements[3]
+            XCTAssertEqual(errorCells.count, 1, "Incorrect number of error cells")
+
+            let areAllCellsErrorCells = errorCells
+                .map { (cell) -> Bool in
+                    switch cell {
+                    case .Error:
+                        return true
+                    default:
+                        return false
+                    }
+                }
+                .reduce(true, { $0 && $1 })
+
+            XCTAssert(areAllCellsErrorCells, "Incorrect types of error cells")
+        }
+        catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
 }
 
 
