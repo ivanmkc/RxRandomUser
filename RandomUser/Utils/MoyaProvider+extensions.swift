@@ -13,7 +13,7 @@ import Mapper
 
 extension MoyaProvider
 {
-    func load<T : Mappable>(_ target: Target) -> Observable<T> {
+    func load<T: Mappable>(_ target: Target) -> Observable<T> {
         return self
             .rx
             .request(target)
@@ -21,7 +21,7 @@ extension MoyaProvider
             .asObservable()
     }
     
-    func loadArray<T : Mappable>(_ target: Target) -> Observable<[T]> {
+    func loadArray<T: Mappable>(_ target: Target) -> Observable<[T]> {
         return self
             .rx
             .request(target)

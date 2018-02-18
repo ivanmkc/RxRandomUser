@@ -37,7 +37,7 @@ class RandomUserResponsePlugin: PluginType {
             }
             
             //Handle invalid JSON formats
-            guard let jsonDictionary = try? responseFiltered.mapJSON() as? [String : Any] else
+            guard let jsonDictionary = try? responseFiltered.mapJSON() as? [String: Any] else
             {
                 return .failure(.jsonMapping(response))
             }
@@ -68,7 +68,7 @@ class RandomUserResponsePlugin: PluginType {
 
 private extension RandomUserResponsePlugin
 {
-    func serializeJSONToData(_ jsonObject : Any) throws -> Data
+    func serializeJSONToData(_ jsonObject: Any) throws -> Data
     {
         let data = try JSONSerialization.data(withJSONObject: jsonObject)
         return data

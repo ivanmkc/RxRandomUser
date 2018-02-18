@@ -9,16 +9,16 @@
 import Mapper
 
 struct Picture {
-    let large : String
-    let medium : String
-    let thumbnail : String
+    let large: URL
+    let medium: URL
+    let thumbnail: URL
 }
 
 extension Picture: Mappable
 {
-    init(map : Mapper) throws {
-        try large = map.from("large")
-        try medium = map.from("medium")
-        try thumbnail = map.from("thumbnail")
+    init(map: Mapper) throws {
+        try large = map.from("large", transformation: ModelMapperTransformations.extractURLFromString)
+        try medium = map.from("medium", transformation: ModelMapperTransformations.extractURLFromString)
+        try thumbnail = map.from("thumbnail", transformation: ModelMapperTransformations.extractURLFromString)
     }
 }

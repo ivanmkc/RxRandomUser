@@ -83,22 +83,6 @@ class UsersViewModelTests: XCTestCase {
                 .reduce(true, { $0 && $1 })
             
             XCTAssert(areAllCellsUserCells, "Incorrect types of user cells")
-            
-            //Check content of first user cell
-            if let firstUserCell = userCells.first {
-                switch (firstUserCell) {
-                case .User(let user):
-                    XCTAssertEqual(user.name.first, "ege", "Incorrect first name of first user")
-                    XCTAssertEqual(user.name.last, "alpuğan", "Incorrect last name of first user")
-                    XCTAssertEqual(user.email, "ege.alpuğan@example.com", "Incorrect email of first user")
-                    XCTAssertEqual(user.gender, .Female, "Incorrect gender of first user")
-                default:
-                    XCTFail("Incorrect type for first user")
-                }
-            }
-            else {
-                XCTFail("First user not found")
-            }
         }
         catch {
             XCTFail(error.localizedDescription)

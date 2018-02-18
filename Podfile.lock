@@ -32,6 +32,7 @@ PODS:
     - RxSwift (~> 4.0)
   - RxTest (4.1.2):
     - RxSwift (~> 4.0)
+  - SwiftDate (4.5.1)
 
 DEPENDENCIES:
   - ESPullToRefresh (~> 2.0)
@@ -46,6 +47,7 @@ DEPENDENCIES:
   - RxSwift (~> 4.0)
   - RxSwiftUtilities (from `https://github.com/ivanmkc/RxSwiftUtilities`, branch `swift_4`)
   - RxTest (~> 4.0)
+  - SwiftDate
 
 EXTERNAL SOURCES:
   RxSwiftUtilities:
@@ -71,7 +73,8 @@ SPEC CHECKSUMS:
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   RxSwiftUtilities: a748c9b0210250a921e6364f33372df979673414
   RxTest: e634f15fd2c2cd0e0120132ef7a4f7be69ad0393
+  SwiftDate: 7b56d42a221f582047287deb256b23fc5ed49a60
 
-PODFILE CHECKSUM: e25bfbc2afd83cdf0a00888716eff0b88d938a50
+PODFILE CHECKSUM: 87a32c938b6fc5480cf9bb699418c29c19bdd37c
 
 COCOAPODS: 1.4.0

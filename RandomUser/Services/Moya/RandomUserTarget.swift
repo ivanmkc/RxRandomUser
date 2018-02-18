@@ -9,11 +9,11 @@
 import Moya
 
 enum RandomUserTarget {
-    case GetRandomUsers(numberOfUsers : Int)
+    case GetRandomUsers(numberOfUsers: Int)
 }
 
-extension RandomUserTarget : TargetType {
-    var headers: [String : String]? {
+extension RandomUserTarget: TargetType {
+    var headers: [String: String]? {
         return nil
     }
     
@@ -32,7 +32,7 @@ extension RandomUserTarget : TargetType {
     var parameters: [String: Any]? {
         switch self {
         case .GetRandomUsers(let numberOfUsers):
-            return ["results" : numberOfUsers]
+            return ["results": numberOfUsers]
         }
     }
     
@@ -56,7 +56,7 @@ extension RandomUserTarget : TargetType {
         return data
     }
     
-    var task : Task {
+    var task: Task {
         guard let parameters = self.parameters, !parameters.isEmpty else { return .requestPlain }
         
         return .requestParameters(parameters: parameters, encoding: self.parameterEncoding)

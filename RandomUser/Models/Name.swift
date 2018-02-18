@@ -9,14 +9,14 @@
 import Mapper
 
 struct Name {
-    let title : String
-    let first : String
-    let last : String
+    let title: String
+    let first: String
+    let last: String
 }
 
 extension Name: Mappable
 {
-    init(map : Mapper) throws {
+    init(map: Mapper) throws {
         try first = map.from("first")
         try last = map.from("last")
         try title = map.from("title")

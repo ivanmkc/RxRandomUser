@@ -35,6 +35,10 @@
 		C95127B32039D13F00881E95 /* UIScrollView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127B22039D13F00881E95 /* UIScrollView+extensions.swift */; };
 		C95127B52039D19B00881E95 /* Observable+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127B42039D19B00881E95 /* Observable+extensions.swift */; };
 		C95127B62039D2AA00881E95 /* MockErrorPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127AE2039C89D00881E95 /* MockErrorPlugin.swift */; };
+		C95127B92039D3B900881E95 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127B82039D3B800881E95 /* UserCollectionViewCell.swift */; };
+		C95127BB2039D3F500881E95 /* ModelMapper+transformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127BA2039D3F500881E95 /* ModelMapper+transformations.swift */; };
+		C95127BD2039D6B600881E95 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127BC2039D6B600881E95 /* Login.swift */; };
+		C95127C22039DFDF00881E95 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95127C12039DFDF00881E95 /* UserTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +95,10 @@
 		C95127B02039CFF800881E95 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		C95127B22039D13F00881E95 /* UIScrollView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+extensions.swift"; sourceTree = "<group>"; };
 		C95127B42039D19B00881E95 /* Observable+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+extensions.swift"; sourceTree = "<group>"; };
+		C95127B82039D3B800881E95 /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
+		C95127BA2039D3F500881E95 /* ModelMapper+transformations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelMapper+transformations.swift"; sourceTree = "<group>"; };
+		C95127BC2039D6B600881E95 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		C95127C12039DFDF00881E95 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		CC058197CB0CE67A9456692E /* Pods-RandomUser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RandomUser/Pods-RandomUser.debug.xcconfig"; sourceTree = "<group>"; };
 		E877217CD9EDF8BC0CD2FFD6 /* Pods-RandomUserUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUserUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RandomUserUITests/Pods-RandomUserUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,8 +187,9 @@
 		C951276F2039AF6800881E95 /* RandomUserTests */ = {
 			isa = PBXGroup;
 			children = (
-				C95127AD2039C88400881E95 /* Mocks */,
+				C95127C02039DFC600881E95 /* Models */,
 				C95127AB2039C71700881E95 /* TestConstants.swift */,
+				C95127AD2039C88400881E95 /* Mocks */,
 				C95127A82039C46300881E95 /* View Models */,
 				C95127982039B9DE00881E95 /* Stubs */,
 				C951278F2039B23D00881E95 /* Services */,
@@ -204,6 +213,7 @@
 				C951278D2039B1D500881E95 /* User.swift */,
 				C951279B2039BB5400881E95 /* Picture.swift */,
 				C951279D2039BBA100881E95 /* Name.swift */,
+				C95127BC2039D6B600881E95 /* Login.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -241,6 +251,7 @@
 				C95127962039B6A700881E95 /* MoyaProvider+extensions.swift */,
 				C95127B22039D13F00881E95 /* UIScrollView+extensions.swift */,
 				C95127B42039D19B00881E95 /* Observable+extensions.swift */,
+				C95127BA2039D3F500881E95 /* ModelMapper+transformations.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -264,6 +275,7 @@
 		C95127A32039C33C00881E95 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C95127B72039D3A500881E95 /* Cells */,
 				C95127B02039CFF800881E95 /* UsersViewController.swift */,
 			);
 			path = "View Controllers";
@@ -283,6 +295,22 @@
 				C95127AE2039C89D00881E95 /* MockErrorPlugin.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		C95127B72039D3A500881E95 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C95127B82039D3B800881E95 /* UserCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		C95127C02039DFC600881E95 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C95127C12039DFDF00881E95 /* UserTests.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F17523770BA9811A429258EA /* Frameworks */ = {
@@ -535,6 +563,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwiftUtilities/RxSwiftUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -549,6 +578,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -630,8 +660,11 @@
 				C951275C2039AF6800881E95 /* AppDelegate.swift in Sources */,
 				C95127B62039D2AA00881E95 /* MockErrorPlugin.swift in Sources */,
 				C951278C2039B1A000881E95 /* DataProviding.swift in Sources */,
+				C95127B92039D3B900881E95 /* UserCollectionViewCell.swift in Sources */,
 				C95127B32039D13F00881E95 /* UIScrollView+extensions.swift in Sources */,
+				C95127BD2039D6B600881E95 /* Login.swift in Sources */,
 				C95127A72039C40100881E95 /* Constants.swift in Sources */,
+				C95127BB2039D3F500881E95 /* ModelMapper+transformations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,6 +674,7 @@
 			files = (
 				C95127712039AF6800881E95 /* RandomUserTests.swift in Sources */,
 				C95127AC2039C71700881E95 /* TestConstants.swift in Sources */,
+				C95127C22039DFDF00881E95 /* UserTests.swift in Sources */,
 				C95127AA2039C46E00881E95 /* UsersViewModelTests.swift in Sources */,
 				C95127AF2039C89D00881E95 /* MockErrorPlugin.swift in Sources */,
 			);

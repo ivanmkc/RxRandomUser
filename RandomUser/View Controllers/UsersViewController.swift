@@ -21,6 +21,11 @@ struct UsersViewControllerConstants {
     struct Segues {
         static let ShowUserDetails = "showUserDetails"
     }
+    
+    struct Layout {
+        static let InteritemSpacing: CGFloat = 3
+        static let LineSpacing: CGFloat = 3
+    }
 }
 
 class UsersViewController: UIViewController {
@@ -64,16 +69,39 @@ class UsersViewController: UIViewController {
             case .User(let user):
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UsersViewControllerConstants.CellIdentifiers.User, for: IndexPath(row: row, section: 0))
                 
+                if let cell = cell as? UserCollectionViewCell
+                {
+                    cell.user = user
+                }
+                
                 return cell
             case .Error(let error):
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UsersViewControllerConstants.CellIdentifiers.Error, for: IndexPath(row: row, section: 0))                
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UsersViewControllerConstants.CellIdentifiers.Error, for: IndexPath(row: row, section: 0))
                 
                 return cell
             case .Loading:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UsersViewControllerConstants.CellIdentifiers.Loading, for: IndexPath(row: row, section: 0))
                 return cell
             }
-            }
-            .disposed(by: disposeBag)
+        }
+        .disposed(by: disposeBag)
+        
+        collectionViewUsers.rx.setDelegate(self).disposed(by: disposeBag)
     }
 }
+
+extension UsersViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth = (collectionView.frame.width-UsersViewControllerConstants.Layout.InteritemSpacing)/2
+        return CGSize(width: cellWidth, height:  cellWidth)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return UsersViewControllerConstants.Layout.InteritemSpacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return UsersViewControllerConstants.Layout.LineSpacing
+    }
+}
+
