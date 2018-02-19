@@ -13,7 +13,7 @@ enum RandomUserResponseError: LocalizedError {
     case InvalidResponseFormat
     case Other(description: String)
     
-    var localizedDescription: String {
+    var errorDescription: String? {
         switch self {
         case .InvalidResponseFormat:
             return "Invalid response format"

@@ -35,12 +35,13 @@ class UsersViewModel {
             .flatMapLatest {
                 dataProvider
                     .GetUsers(numberOfUsers: Constants.NumberOfUsers)
-                    .trackActivity(activityIndicator)//Show an error cell if there's an error
+                    .trackActivity(activityIndicator)
                     .map { (users) -> [UserCellType] in
                         //Show user cells
                         return users.map { .User(user: $0) }
                     }
                     .asDriver(onErrorRecover: { (error) -> Driver<[UserCellType]> in
+                        //Show an error cell if there's an error
                         return Driver.just([UserCellType.Error(error: error)])
                     })
             }
