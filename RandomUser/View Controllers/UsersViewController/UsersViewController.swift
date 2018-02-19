@@ -48,9 +48,10 @@ class UsersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Hide the navigation bar
+        //Hide the navigation bar
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
+        //Make the collectionview bounce vertically
+        self.collectionViewUsers.alwaysBounceVertical = true
         setupRx()
     }
     

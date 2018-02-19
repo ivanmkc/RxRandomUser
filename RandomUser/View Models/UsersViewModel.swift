@@ -42,13 +42,13 @@ class UsersViewModel {
                     }
                     .asDriver(onErrorRecover: { (error) -> Driver<[UserCellType]> in
                         //Show an error cell if there's an error
-                        return Driver.just([UserCellType.Error(error: error)])
+                        return Driver.just([.Error(error: error)])
                     })
             }
             .startWith([])
         
         //Initialize the placeholder cells that show while loading
-        let loadingCells: [UserCellType] = (0..<Constants.NumberOfLoadingCells).map { _ in .Loading }
+        let loadingCells: [UserCellType] = Array(repeating: .Loading, count: Constants.NumberOfLoadingCells)
         
         isLoading = activityIndicator
             .asDriver(onErrorJustReturn: false)
